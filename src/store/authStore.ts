@@ -34,12 +34,12 @@ export const useAuthStore = create<AuthState>((set) => ({
         gapi.load('client:auth2', resolve);
       });
 
-      await gapi.client.init({
-        apiKey: 'AIzaSyCu9xr_wgcIotbszTls6NvxRETp_LTfgnY',
-        clientId: '60929385340-2m1820t2sl55eih9qjhett3g1164hkvk.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.photos.readonly',
-        discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
-      });
+     await gapi.client.init({
+  apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
+  clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+  scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.photos.readonly',
+  discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+});
 
       const authInstance = gapi.auth2.getAuthInstance();
       const isSignedIn = authInstance.isSignedIn.get();

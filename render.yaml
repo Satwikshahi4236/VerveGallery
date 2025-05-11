@@ -1,0 +1,11 @@
+services:
+  - type: static_site
+    name: VerveGallery
+    env: static
+    buildCommand: npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_GOOGLE_API_KEY
+        value: AIzaSyCu9xr_wgcIotbszTls6NvxRETp_LTfgnY
+      - key: VITE_GOOGLE_CLIENT_ID
+        value: 60929385340-2m1820t2sl55eih9qjhett3g1164hkvk.apps.googleusercontent.com
